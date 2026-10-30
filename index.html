@@ -312,6 +312,14 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
 .case-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
 .case-body h4 { margin: 0 0 6px; }
 .case-body p { margin: 0; color: var(--muted); }
+.more-wrap { display: grid; gap: 10px; }
+.case-text { display: grid; gap: 28px; }
+@media (max-width: 640px) { .case-text .case-body { order: -1; } }
+.more-wrap.clamped .case-text { max-height: var(--clamp-h, 260px); overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to bottom, #000 60%, transparent); }
+.more-btn { justify-self: start; display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--line); color: var(--ink); padding: 8px 12px; cursor: pointer; font-family: var(--f-mono); font-size: var(--s-label); letter-spacing: .06em; text-transform: uppercase; }
+.more-btn:hover { border-color: var(--ink); }
+.more-btn i { font-style: normal; transition: transform .25s ease; }
+.more-wrap:not(.clamped) .more-btn i { transform: rotate(180deg); }
 .todo { color: var(--oxide); }
 
 @media (max-width: 860px) {
@@ -935,6 +943,23 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
     openFile(h, a.textContent.replace(/\s*↗\s*$/, '').trim());
   });
 
+  /* ---------------- Long case text: clamp on phones, View more / Show less ---------------- */
+  const LIMIT = 260;
+  const setupMore = () => {
+    const wrap = $('#caseIn .more-wrap'); if (!wrap) return;
+    const body = wrap.querySelector('.case-text'), btn = wrap.querySelector('.more-btn');
+    wrap.classList.remove('clamped'); btn.hidden = true;
+    if (!matchMedia('(max-width: 640px)').matches || body.scrollHeight <= LIMIT + 220) return;
+    wrap.classList.add('clamped'); btn.hidden = false;
+    btn.setAttribute('aria-expanded', 'false'); btn.querySelector('span').textContent = 'View more';
+  };
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.more-btn'); if (!btn) return;
+    const wrap = btn.closest('.more-wrap'), open = wrap.classList.toggle('clamped') === false;
+    btn.setAttribute('aria-expanded', open); btn.querySelector('span').textContent = open ? 'Show less' : 'View more';
+    if (!open) wrap.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
+  });
+
   /* ---------------- Case study sheet ---------------- */
   const dlg = $('#case');
   const openCase = id => {
@@ -946,21 +971,23 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
         <div><span class="mono" style="color:var(--muted)">${meta(p)}</span><h2 id="caseTitle">${p.title}</h2></div>
         <button class="case-close" type="button" aria-label="Close case study">✕</button>
       </div>
+      <div class="more-wrap"><div class="case-text" id="caseText">
       <div class="case-meta">
         ${p.role ? `<div><span class="mono">Role</span><span>${p.role}</span></div>` : ''}
         <div><span class="mono">Deliverables</span><span>${p.deliverables}</span></div>
         <div><span class="mono">Tools</span><span>${p.tools}</span></div>
         <div><span class="mono">Type</span><span>${p.cats.map(c => CATS[c]).join(', ')}</span></div>
       </div>
-      ${p.links ? `<div class="case-links">${p.links.map(l => `<a class="btn" href="${l.href}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('')}</div>` : ''}
       <div class="case-body">
         <div><h4 class="mono">Brief</h4><p>${p.brief || p.summary}</p></div>
         ${p.approach ? `<div><h4 class="mono">Approach</h4><p>${p.approach}</p></div>` : ''}
         ${p.a11yText ? `<div><h4 class="mono">${p.a11y ? 'Accessibility' : 'Production'}</h4><p>${p.a11yText}</p></div>` : ''}
-      </div>
+      </div></div><button type="button" class="more-btn" aria-expanded="false" aria-controls="caseText" hidden><span>View more</span><i aria-hidden="true">↓</i></button></div>
+      ${p.links ? `<div class="case-links">${p.links.map(l => `<a class="btn" href="${l.href}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('')}</div>` : ''}
       ${stackHTML(p)}`;
     dlg.showModal();
     $('#caseIn').scrollTop = 0;
+    setupMore();
     try { history.replaceState(null, '', '#' + id); } catch {}
   };
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('.case-close')) dlg.close(); });
