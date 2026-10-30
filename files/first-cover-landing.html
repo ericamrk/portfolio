@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body style="margin:0">
+<title>First Cover</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Health and dental cover for your twenties, explained in plain words. A fictional brand by Rongke (Erica) Ma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@700&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<style>
+/* Layout: one column of paper sections; the quote form is the checklist the whole campaign points to. */
+:root{
+  --paper:#F7F3EC; --raised:#FFFFFF; --ink:#17251F; --muted:#4A5A52;
+  --spruce:#1E5A47; --spruce-deep:#133D30; --on-spruce:#FFFFFF; --mint:#D5EBDF;
+  --coral:#EA5C3E; --on-coral:#17251F; --line:#D9D2C5; --field:#7A857F; --error:#A31D2E;
+  --link:#1E5A47; --btn:#1E5A47; --btn-hover:#133D30; --on-btn:#FFFFFF;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Atkinson Hyperlegible",Verdana,Arial,sans-serif;
+  --mono:"Atkinson Hyperlegible Mono",ui-monospace,Menlo,monospace;
+  --r-box:4px; --r-card:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#121A16; --raised:#1B2620; --ink:#F3EFE6; --muted:#B9C4BD;
+  --spruce:#1F3A2F; --spruce-deep:#0E1F18; --on-spruce:#F3EFE6; --mint:#1F3A2F;
+  --coral:#EA5C3E; --on-coral:#17251F; --line:#33433A; --field:#8C9A92; --error:#FF8A8A;
+  --link:#9FD8BE; --btn:#9FD8BE; --btn-hover:#BFE7D3; --on-btn:#0E1F18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121A16; --raised:#1B2620; --ink:#F3EFE6; --muted:#B9C4BD;
+  --spruce:#1F3A2F; --spruce-deep:#0E1F18; --on-spruce:#F3EFE6; --mint:#1F3A2F;
+  --coral:#EA5C3E; --on-coral:#17251F; --line:#33433A; --field:#8C9A92; --error:#FF8A8A;
+  --link:#9FD8BE; --btn:#9FD8BE; --btn-hover:#BFE7D3; --on-btn:#0E1F18; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--link);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:var(--r-box)}
+.label{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--link)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--raised);padding:12px 16px;z-index:20}
+.skip:focus{left:16px}
+
+/* header */
+header{padding-block:20px;border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:24px;margin-right:auto}
+.brand svg{width:36px;height:36px;flex-shrink:0}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:999px;border:2px solid var(--btn);background:var(--btn);color:var(--on-btn);font:700 17px/1.2 var(--sans);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--btn-hover);border-color:var(--btn-hover)}
+.btn.ghost{background:transparent;color:var(--link);border-color:var(--link)}
+.btn.ghost:hover{background:var(--mint)}
+
+/* hero */
+.hero{padding-block:64px 72px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6vw,72px);margin-block:16px 20px}
+.hero .lede{font-size:21px;max-width:34ch;color:var(--ink)}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.firsts{background:var(--raised);border-radius:var(--r-card);padding:12px 32px;list-style:none;margin:0}
+.firsts li{display:flex;align-items:center;gap:20px;padding-block:22px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,34px);line-height:1.1}
+.firsts li:last-child{border-bottom:0;color:var(--link)}
+.box{width:40px;height:40px;flex-shrink:0;border-radius:8px;display:grid;place-items:center}
+.box.on{background:var(--coral)}
+.box.on svg{width:26px;height:26px}
+.box.off{border:4px solid var(--ink)}
+.firsts .note{display:block;font-family:var(--sans);font-weight:400;font-size:15px;color:var(--muted);margin-top:4px}
+
+/* bands */
+section{padding-block:72px}
+.band{background:var(--spruce);color:var(--on-spruce)}
+.band .label{color:var(--on-spruce);opacity:1}
+.band a{color:var(--on-spruce)}
+.sec-head{display:flex;flex-direction:column;gap:12px;max-width:720px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(34px,4.4vw,52px)}
+.sec-head p{font-size:20px}
+
+.changes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.changes li{background:var(--raised);color:var(--ink);border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;gap:12px}
+.changes h3{font-size:24px}
+.changes .when{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.changes p{font-size:17px;color:var(--ink)}
+.changes li.ours{background:var(--coral);color:var(--on-coral)}
+.changes li.ours .when,.changes li.ours p,.changes li.ours h3{color:var(--on-coral)}
+.sources{margin-top:24px;font-size:15px}
+
+/* coverage */
+.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;align-items:start}
+.panel{border-radius:var(--r-card);padding:28px}
+.panel.inc{background:var(--raised)}
+.panel h3{font-size:24px;margin-bottom:16px}
+.inc ul,.mods{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.inc li{display:flex;gap:12px;align-items:flex-start}
+.tick-sm{width:24px;height:24px;flex-shrink:0;border-radius:6px;background:var(--btn);display:grid;place-items:center;margin-top:3px}
+.tick-sm svg{width:16px;height:16px}
+.mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mods li{background:var(--raised);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--line)}
+.mods h4{margin:0;font-family:var(--display);font-weight:600;font-size:24px;display:flex;align-items:center;gap:12px}
+.mods .ob{width:22px;height:22px;border:3px solid var(--field);border-radius:5px;flex-shrink:0}
+.mods p{font-size:16px;color:var(--muted)}
+.later{margin-top:20px;font-size:16px;color:var(--muted)}
+
+/* quote form */
+.quote{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.steps{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:0}
+.steps li{display:flex;align-items:center;gap:14px;padding-block:14px;border-bottom:1px solid var(--line);font-size:17px}
+.steps .box{width:28px;height:28px;border-radius:6px}
+.steps .box.off{border-width:3px;border-color:var(--field)}
+.steps .box svg{width:18px;height:18px}
+.steps li[aria-current="step"]{font-weight:700}
+form{background:var(--raised);border-radius:var(--r-card);padding:clamp(20px,4vw,40px)}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:24px}
+legend{padding:0;margin-bottom:8px}
+legend h3{font-size:30px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field > label,.q{font-weight:700;font-size:17px}
+.hint{font-size:15px;color:var(--muted);font-weight:400}
+input[type=number],select,input[type=email]{font:inherit;font-size:18px;color:var(--ink);background:var(--raised);border:2px solid var(--field);border-radius:var(--r-box);padding:12px 14px;min-height:52px;width:100%;max-width:320px}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opt{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:10px 0;cursor:pointer}
+.opt input{appearance:none;-webkit-appearance:none;margin:2px 0 0;width:24px;height:24px;flex-shrink:0;border:2px solid var(--field);background:var(--raised);display:grid;place-items:center;cursor:pointer}
+.opt input[type=radio]{border-radius:50%}
+.opt input[type=checkbox]{border-radius:var(--r-box)}
+.opt input[type=radio]:checked{border-color:var(--btn);box-shadow:inset 0 0 0 5px var(--raised);background:var(--btn)}
+.opt input[type=checkbox]:checked{background:var(--coral);border-color:var(--coral)}
+.opt input[type=checkbox]:checked::after{content:"";width:6px;height:12px;border:solid var(--on-coral);border-width:0 3px 3px 0;transform:translateY(-2px) rotate(45deg)}
+.opt input:disabled{background:var(--btn);border-color:var(--btn)}
+.opt input:disabled::after{border-color:var(--on-btn)!important}
+.opt .t{display:flex;flex-direction:column}
+.opt .t b{font-size:17px}
+.opt .t span{font-size:15px;color:var(--muted)}
+.err{color:var(--error);font-size:16px;font-weight:700;display:flex;gap:6px;align-items:center}
+.err svg{width:18px;height:18px;flex-shrink:0}
+[aria-invalid="true"]{border-color:var(--error)!important}
+.summary-err{border:2px solid var(--error);border-radius:var(--r-box);padding:16px 20px;margin-bottom:24px}
+.summary-err h4{margin:0 0 6px;font-size:18px;color:var(--error)}
+.summary-err ul{margin:0;padding-left:20px}
+.nav-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.mint{background:var(--mint);border-radius:var(--r-card);padding:20px 24px;font-size:16px}
+.mint b{display:block;margin-bottom:4px}
+.result h3{font-size:34px;margin-block:8px 16px}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-block:8px 4px}
+.price strong{font-family:var(--display);font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.lines{list-style:none;margin:20px 0 0;padding:0}
+.lines li{display:flex;justify-content:space-between;gap:16px;padding-block:10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;font-size:17px}
+.small{font-size:14px;color:var(--muted)}
+
+/* glossary */
+dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;margin:0}
+dl div{padding-block:18px;border-top:1px solid var(--line)}
+dt{font-family:var(--display);font-weight:600;font-size:22px}
+dd{margin:4px 0 0;font-size:17px;color:var(--ink)}
+
+footer{padding-block:48px 64px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:10px}
+
+@media (max-width:860px){
+  .hero,.quote,.cover-grid{grid-template-columns:minmax(0,1fr)}
+  .changes{grid-template-columns:minmax(0,1fr)}
+  nav ul{display:none}
+}
+@media (max-width:560px){
+  .mods,dl{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:40px 48px}
+  section{padding-block:56px}
+  .firsts{padding:4px 20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .box.on.pop{animation:pop .35s ease-out}
+  @keyframes pop{0%{transform:scale(.6)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+}
+</style>
+
+<a class="skip" href="#quote">Skip to the quote</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tick" viewBox="0 0 64 64"><path d="M12 33l12 12L52 18" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="First Cover, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="#1E5A47"/><path d="M18 33.5l9.5 9.5L46.5 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      First Cover
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#turning-25">Turning 25</a></li>
+        <li><a href="#covered">What's covered</a></li>
+        <li><a href="#plain-words">Plain words</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#quote">Get a quote</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="label">Health and dental for your twenties</p>
+      <h1>You've ticked a lot of firsts this year. Here's one more.</h1>
+      <p class="lede">A starter plan for prescriptions, dental, therapy and more, explained in plain words. A quote takes 3 questions.</p>
+      <div class="actions">
+        <a class="btn" href="#quote">Get my quote</a>
+        <a class="btn ghost" href="#covered">See what's covered</a>
+      </div>
+    </div>
+    <ul class="firsts" aria-label="Your firsts so far">
+      <li><span class="box on" aria-hidden="true"><svg style="color:var(--on-coral)"><use href="#tick"/></svg></span><span>First lease.<span class="note">Done</span></span></li>
+      <li><span class="box on" aria-hidden="true"><svg style="color:var(--on-coral)"><use href="#tick"/></svg></span><span>First paycheque.<span class="note">Done</span></span></li>
+      <li><span class="box off" id="hero-box" aria-hidden="true"><svg style="color:var(--on-coral)" hidden><use href="#tick"/></svg></span><span>First cover.<span class="note" id="hero-note">Not yet</span></span></li>
+    </ul>
+  </div>
+
+  <section class="band" id="turning-25" aria-labelledby="t25-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Ontario · on your birthday</p>
+        <h2 id="t25-h">What changes at 25</h2>
+        <p>Two kinds of cover can end on the same day. Here's what usually happens, and what you can do about it.</p>
+      </div>
+      <ul class="changes">
+        <li>
+          <span class="when">Often at 25</span>
+          <h3>Your parent's benefits plan</h3>
+          <p>Most family plans check that you're a full-time student from 21 and stop covering you at 25 (26 in Quebec). Check the plan's booklet for the exact date.</p>
+        </li>
+        <li>
+          <span class="when">On your 25th birthday</span>
+          <h3>OHIP+ prescriptions</h3>
+          <p>Ontario pays for most prescriptions for people 24 and under who have no private drug plan. That stops on your 25th birthday.</p>
+        </li>
+        <li class="ours">
+          <span class="when">The same day, if you like</span>
+          <h3>First Cover</h3>
+          <p>Prescriptions are included in every plan. Apply within 60 days of losing group coverage and we won't ask any health questions.</p>
+        </li>
+      </ul>
+      <p class="sources">Sources: <a href="https://ontario.ca/page/learn-about-ohip-plus">Ontario.ca, OHIP+</a> · <a href="https://www.manulife.com/ca/en/personal/support/group-plans/group-benefits/understanding-dependant-student-status-coverage-faqs">Manulife, student dependant coverage</a></p>
+    </div>
+  </section>
+
+  <section id="covered" aria-labelledby="cov-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">First Cover Starter</p>
+        <h2 id="cov-h">One plan. Tick what you need.</h2>
+        <p>Every plan has the basics. Then add the modules that fit your life, and change them any month.</p>
+      </div>
+      <div class="cover-grid">
+        <div class="panel inc">
+          <h3>Always included</h3>
+          <ul>
+            <li><span class="tick-sm" aria-hidden="true"><svg style="color:var(--on-btn)"><use href="#tick"/></svg></span><span><b>Prescriptions</b><br><span class="small">Picks up where OHIP+ stops.</span></span></li>
+            <li><span class="tick-sm" aria-hidden="true"><svg style="color:var(--on-btn)"><use href="#tick"/></svg></span><span><b>Virtual care</b><br><span class="small">See a doctor by video, any day.</span></span></li>
+            <li><span class="tick-sm" aria-hidden="true"><svg style="color:var(--on-btn)"><use href="#tick"/></svg></span><span><b>Travel medical</b><br><span class="small">Emergency care outside your province.</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="mods">
+            <li><h4><span class="ob" aria-hidden="true"></span>Dental</h4><p>Cleanings, check-ups and fillings. Read the dental note in the quote first.</p></li>
+            <li><h4><span class="ob" aria-hidden="true"></span>Mind</h4><p>Therapy with a psychologist, psychotherapist or social worker, in person or online.</p></li>
+            <li><h4><span class="ob" aria-hidden="true"></span>Body</h4><p>Physio, massage therapy and chiropractic care.</p></li>
+            <li><h4><span class="ob" aria-hidden="true"></span>Vision</h4><p>An eye exam, plus glasses or contacts.</p></li>
+          </ul>
+          <p class="later"><b style="color:var(--ink)">Later, when life changes:</b> income protection for freelancers, term life when someone depends on you, and critical illness cover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" aria-labelledby="q-h" style="background:var(--mint);color:var(--ink)">
+    <div class="wrap quote">
+      <div>
+        <p class="label">Your quote</p>
+        <h2 id="q-h" style="font-size:clamp(34px,4.4vw,52px);margin-top:12px">3 questions. Each one ticks a box.</h2>
+        <ol class="steps" aria-label="Quote progress">
+          <li id="s-1" aria-current="step"><span class="box off" aria-hidden="true"><svg style="color:var(--on-coral)" hidden><use href="#tick"/></svg></span><span>About you</span><span class="small" data-state></span></li>
+          <li id="s-2"><span class="box off" aria-hidden="true"><svg style="color:var(--on-coral)" hidden><use href="#tick"/></svg></span><span>Your situation</span><span class="small" data-state></span></li>
+          <li id="s-3"><span class="box off" aria-hidden="true"><svg style="color:var(--on-coral)" hidden><use href="#tick"/></svg></span><span>What you need</span><span class="small" data-state></span></li>
+        </ol>
+        <p class="small" style="margin-top:20px">Prices are illustrative. First Cover is a fictional brand; nothing you enter leaves this page.</p>
+      </div>
+
+      <form id="quote-form" novalidate aria-describedby="q-live">
+        <div id="err-box" class="summary-err" role="alert" tabindex="-1" hidden>
+          <h4>Error: please fix this before you go on</h4>
+          <ul id="err-list"></ul>
+        </div>
+
+        <fieldset id="step-1" data-step="1">
+          <legend><span class="label">Step 1 of 3</span><h3>About you</h3></legend>
+          <div class="field">
+            <label for="prov">Province or territory</label>
+            <select id="prov" name="prov" aria-describedby="prov-err">
+              <option value="">Choose one</option>
+              <option>Alberta</option><option>British Columbia</option><option>Manitoba</option><option>New Brunswick</option><option>Newfoundland and Labrador</option><option>Nova Scotia</option><option selected>Ontario</option><option>Prince Edward Island</option><option>Quebec</option><option>Saskatchewan</option><option>Northwest Territories</option><option>Nunavut</option><option>Yukon</option>
+            </select>
+            <p class="err" id="prov-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="age">Your age <span class="hint">(18 to 35)</span></label>
+            <input id="age" name="age" type="number" inputmode="numeric" min="18" max="35" value="25" aria-describedby="age-err">
+            <p class="err" id="age-err" hidden></p>
+          </div>
+        </fieldset>
+
+        <fieldset id="step-2" data-step="2" hidden>
+          <legend><span class="label">Step 2 of 3</span><h3>Your situation</h3></legend>
+          <div class="field" role="radiogroup" aria-labelledby="sit-q" aria-describedby="sit-err">
+            <p class="q" id="sit-q">Which sounds most like you?</p>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="sit" id="sit-parent" value="parent" checked><span class="t"><b>I'm leaving a parent's plan</b><span>Turning 25, or no longer a full-time student</span></span></label>
+              <label class="opt"><input type="radio" name="sit" id="sit-job" value="job"><span class="t"><b>My job has no benefits</b><span>Contract, part-time or agency work</span></span></label>
+              <label class="opt"><input type="radio" name="sit" id="sit-free" value="freelance"><span class="t"><b>I'm freelance or self-employed</b><span>No boss, no group plan</span></span></label>
+              <label class="opt"><input type="radio" name="sit" id="sit-other" value="other"><span class="t"><b>Something else</b></span></label>
+            </div>
+            <p class="err" id="sit-err" hidden></p>
+          </div>
+          <div class="field" role="radiogroup" aria-labelledby="lost-q">
+            <p class="q" id="lost-q">Did you lose group coverage in the last 60 days, or will you soon?</p>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="lost" id="lost-y" value="yes" checked><span class="t"><b>Yes</b></span></label>
+              <label class="opt"><input type="radio" name="lost" id="lost-n" value="no"><span class="t"><b>No</b></span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset id="step-3" data-step="3" hidden>
+          <legend><span class="label">Step 3 of 3</span><h3>What you need</h3></legend>
+          <div class="field">
+            <p class="q" id="mod-q">Tick what you need <span class="hint">(you can change this any month)</span></p>
+            <div class="opts" role="group" aria-labelledby="mod-q">
+              <label class="opt"><input type="checkbox" checked disabled><span class="t"><b>Prescriptions, virtual care, travel medical</b><span>Always included</span></span></label>
+              <label class="opt"><input type="checkbox" name="mod" id="m-dental" value="dental"><span class="t"><b>Dental</b><span>Cleanings, check-ups, fillings</span></span></label>
+              <label class="opt"><input type="checkbox" name="mod" id="m-mind" value="mind" checked><span class="t"><b>Mind</b><span>Therapy sessions</span></span></label>
+              <label class="opt"><input type="checkbox" name="mod" id="m-body" value="body"><span class="t"><b>Body</b><span>Physio, massage, chiro</span></span></label>
+              <label class="opt"><input type="checkbox" name="mod" id="m-vision" value="vision"><span class="t"><b>Vision</b><span>Eye exam, glasses or contacts</span></span></label>
+            </div>
+          </div>
+          <div class="field" role="radiogroup" aria-labelledby="inc-q">
+            <p class="q" id="inc-q">Is your family's net income under $90,000 a year? <span class="hint">We ask so we can tell you about free dental cover.</span></p>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="inc" id="inc-y" value="yes"><span class="t"><b>Yes</b></span></label>
+              <label class="opt"><input type="radio" name="inc" id="inc-n" value="no"><span class="t"><b>No</b></span></label>
+              <label class="opt"><input type="radio" name="inc" id="inc-u" value="unsure" checked><span class="t"><b>I'd rather not say</b></span></label>
+            </div>
+          </div>
+          <div class="mint" id="cdcp" hidden>
+            <b>Before you tick Dental</b>
+            You may qualify for the free Canadian Dental Care Plan if you have no other dental insurance. Buying our Dental module could make you ineligible. <a href="https://www.canada.ca/en/services/benefits/dental/dental-care-plan.html">Check the Canadian Dental Care Plan</a> first.
+          </div>
+        </fieldset>
+
+        <div id="result" class="result" hidden tabindex="-1">
+          <p class="label">Your First Cover quote</p>
+          <h3>Done. That's your first cover.</h3>
+          <div class="price"><strong id="price">$0</strong><span>a month, illustrative</span></div>
+          <p class="small" id="no-hq"></p>
+          <ul class="lines" id="lines"></ul>
+          <div class="nav-row">
+            <button type="button" class="btn" id="start">Start my cover</button>
+            <button type="button" class="btn ghost" id="edit">Change my answers</button>
+          </div>
+          <p id="start-msg" class="mint" style="margin-top:20px" hidden role="status"><b>This is a portfolio demo</b>No policy was created and nothing was sent. In the real flow, this button opens a short sign-up and emails you the plan guide.</p>
+        </div>
+
+        <div class="nav-row" id="nav-row">
+          <button type="button" class="btn ghost" id="back" hidden>Back</button>
+          <button type="submit" class="btn" id="next">Next: your situation</button>
+        </div>
+        <p id="q-live" class="small" aria-live="polite" style="margin-top:12px"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="plain-words" aria-labelledby="pw-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Plain words</p>
+        <h2 id="pw-h">The words insurance uses, explained</h2>
+      </div>
+      <dl>
+        <div><dt>Premium</dt><dd>What you pay each month.</dd></div>
+        <div><dt>Deductible</dt><dd>What you pay before the plan starts paying. Ours is $0.</dd></div>
+        <div><dt>Waiting period</dt><dd>The time between signing up and when a benefit starts. 0 days for prescriptions.</dd></div>
+        <div><dt>Co-insurance</dt><dd>The share of a bill the plan pays. "80%" means you pay $20 of a $100 bill.</dd></div>
+        <div><dt>Annual maximum</dt><dd>The most a module pays in one plan year. It resets every year.</dd></div>
+        <div><dt>Group coverage</dt><dd>Benefits that come through an employer or a parent's employer.</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--ink)">First Cover is a fictional brand</b>, made as a portfolio project by Rongke (Erica) Ma. It is not an insurance offer and is not affiliated with any insurer. Prices are illustrative.</p>
+    <p>Built to WCAG 2.1 AA: keyboard and screen-reader tested form, visible focus, 4.5:1 text contrast in light and dark.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const form=document.getElementById('quote-form');
+  const steps=[1,2,3].map(n=>document.getElementById('step-'+n));
+  const next=document.getElementById('next'), back=document.getElementById('back');
+  const live=document.getElementById('q-live'), errBox=document.getElementById('err-box'), errList=document.getElementById('err-list');
+  const result=document.getElementById('result'), navRow=document.getElementById('nav-row');
+  const labels=['Next: your situation','Next: what you need','See my quote'];
+  const PRICE={base:34,dental:19,mind:16,body:11,vision:7};
+  const NAMES={dental:'Dental',mind:'Mind',body:'Body',vision:'Vision'};
+  let cur=0;
+
+  function tickStep(i,done){
+    const li=document.getElementById('s-'+(i+1)), box=li.querySelector('.box'), svg=box.querySelector('svg');
+    box.classList.toggle('on',done); box.classList.toggle('off',!done); svg.hidden=!done;
+    if(done){box.classList.remove('pop');void box.offsetWidth;box.classList.add('pop');}
+    li.querySelector('[data-state]').textContent=done?'Done':'';
+  }
+  function show(i){
+    cur=i;
+    steps.forEach((s,n)=>s.hidden=n!==i);
+    document.querySelectorAll('.steps li').forEach((li,n)=>{ if(n===i) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current'); });
+    back.hidden=i===0; next.textContent=labels[i];
+    live.textContent='Step '+(i+1)+' of 3: '+steps[i].querySelector('h3').textContent;
+  }
+  function setErr(id,msg){
+    const p=document.getElementById(id+'-err'), el=document.getElementById(id);
+    if(msg){p.hidden=false;p.innerHTML='<svg aria-hidden="true"><use href="#alert"/></svg>Error: '+msg;el&&el.setAttribute('aria-invalid','true');}
+    else{p.hidden=true;p.textContent='';el&&el.removeAttribute('aria-invalid');}
+  }
+  function validate(i){
+    const errs=[];
+    if(i===0){
+      const prov=document.getElementById('prov').value, ageEl=document.getElementById('age'), age=Number(ageEl.value);
+      setErr('prov',prov?'':'choose your province or territory.'); if(!prov) errs.push(['prov','Choose your province or territory.']);
+      let am='';
+      if(ageEl.value==='') am='enter your age.'; else if(!Number.isInteger(age)||age<18||age>35) am='First Cover Starter is for ages 18 to 35. Enter an age in that range.';
+      setErr('age',am); if(am) errs.push(['age',am.charAt(0).toUpperCase()+am.slice(1)]);
+    }
+    if(i===1){
+      const sit=form.querySelector('input[name=sit]:checked');
+      setErr('sit',sit?'':'choose the option closest to you.'); if(!sit) errs.push(['sit-parent','Choose the option closest to you.']);
+    }
+    if(errs.length){
+      errList.innerHTML=''; errs.forEach(([id,m])=>{const li=document.createElement('li');const a=document.createElement('a');a.href='#'+id;a.textContent=m;a.addEventListener('click',e=>{e.preventDefault();document.getElementById(id).focus();});li.appendChild(a);errList.appendChild(li);});
+      errBox.hidden=false; errBox.focus();
+    } else errBox.hidden=true;
+    return !errs.length;
+  }
+  function quote(){
+    const mods=[...form.querySelectorAll('input[name=mod]:checked')].map(i=>i.value);
+    let total=PRICE.base; const lines=[['Prescriptions, virtual care, travel medical',PRICE.base]];
+    mods.forEach(m=>{total+=PRICE[m];lines.push([NAMES[m],PRICE[m]]);});
+    document.getElementById('price').textContent='$'+total;
+    const ul=document.getElementById('lines'); ul.innerHTML='';
+    lines.forEach(([n,p])=>{const li=document.createElement('li');li.innerHTML='<span></span><span></span>';li.children[0].textContent=n;li.children[1].textContent='$'+p;ul.appendChild(li);});
+    const lost=form.querySelector('input[name=lost]:checked').value==='yes';
+    document.getElementById('no-hq').textContent=lost?'No health questions: you applied within 60 days of losing group coverage.':'A few short health questions come next when you start your cover.';
+  }
+  function cdcp(){
+    const show=form.querySelector('input[name=inc]:checked')?.value==='yes';
+    document.getElementById('cdcp').hidden=!show;
+  }
+  form.addEventListener('change',e=>{ if(e.target.name==='inc'||e.target.name==='mod') cdcp(); });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!validate(cur)) return;
+    tickStep(cur,true);
+    if(cur<2){show(cur+1); steps[cur].querySelector('h3').setAttribute('tabindex','-1'); steps[cur].querySelector('h3').focus();}
+    else{
+      quote(); steps.forEach(s=>s.hidden=true); navRow.hidden=true; result.hidden=false; result.focus();
+      live.textContent='All 3 steps done. Your quote is ready.';
+      const hb=document.getElementById('hero-box'); hb.classList.replace('off','on'); hb.querySelector('svg').hidden=false;
+      document.getElementById('hero-note').textContent='Quoted';
+    }
+  });
+  back.addEventListener('click',()=>{ errBox.hidden=true; show(cur-1); tickStep(cur,false); });
+  document.getElementById('edit').addEventListener('click',()=>{
+    result.hidden=true; navRow.hidden=false; document.getElementById('start-msg').hidden=true;
+    [0,1,2].forEach(i=>tickStep(i,false)); show(0); document.getElementById('prov').focus();
+  });
+  document.getElementById('start').addEventListener('click',()=>{document.getElementById('start-msg').hidden=false;});
+  show(0);
+})();
+</script>
+
+</body>
+</html>
