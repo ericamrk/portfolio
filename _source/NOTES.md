@@ -28,7 +28,7 @@ Live draft: claude.ai artifact "Rongke Ma Portfolio" (Fo3jD4cxuYpVSbEABNqpH3). T
 - Originals to replace old-portfolio page crops: retail email ("New Season, New Styles", client/year unknown), exhibition posters, TUKE content calendar, Metamorphosis collection pages.
 - Which live mailchi.mp link matches which email.
 - DKR email open/click rates if available.
-- Erica deploys to Vercel herself via vercel.com/drop (no Git/Vercel access from the sandbox). Build the package with `python3 tools/build_deploy.py` → `deploy/rongke-ma-portfolio.zip` (adds doctype/head/meta, drops removed files). Updates: rebuild the zip, she drops it onto the project in the Vercel dashboard. Custom domain: pending her choice.
+- Hosting: GitHub repo ericamrk/portfolio (branch main, static site at repo root; `_source/` holds the editable page, tools and notes, excluded from deploy by .vercelignore) → Vercel imports it and redeploys on every push. To update: edit site/index.html, run `python3 tools/build_deploy.py`, copy deploy/rongke-ma-portfolio/* into the repo root, also copy site/index.html to _source/artifact-index.html, commit, push. Republish the Claude preview too.
 
 ## Picking this up in a new chat
 - The published artifact holds every file. Read it with the Artifact tool (`read` with the URL, `scope: "files"` to list, `paths` to download) and republish to the same URL.
