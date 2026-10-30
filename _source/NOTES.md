@@ -28,6 +28,7 @@ Live draft: claude.ai artifact "Rongke Ma Portfolio" (Fo3jD4cxuYpVSbEABNqpH3). T
 - Originals to replace old-portfolio page crops: retail email ("New Season, New Styles", client/year unknown), exhibition posters, TUKE content calendar, Metamorphosis collection pages.
 - Which live mailchi.mp link matches which email.
 - DKR email open/click rates if available.
+- Live site: https://rongke-ma.vercel.app (use this, not the Claude artifact link, for interviewers).
 - Hosting: GitHub repo ericamrk/portfolio (branch main, static site at repo root; `_source/` holds the editable page, tools and notes, excluded from deploy by .vercelignore) → Vercel imports it and redeploys on every push. To update: edit site/index.html, run `python3 tools/build_deploy.py`, copy deploy/rongke-ma-portfolio/* into the repo root, also copy site/index.html to _source/artifact-index.html, commit, push. Republish the Claude preview too.
 
 ## Picking this up in a new chat
