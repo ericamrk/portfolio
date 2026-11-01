@@ -225,6 +225,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 .inbox-row i { font: 400 10px/1 var(--f-mono); color: var(--muted); font-style: normal; letter-spacing: .05em; text-transform: uppercase; }
 .stack .head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 8px; }
 .stack .head h4 { margin: 0; font: 300 22px/1.2 var(--f-display); font-stretch: 112%; }
+.stack .look-note { grid-column: 1 / -1; display: grid; gap: 10px; max-width: 62ch; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.stack .look-note p { margin: 0; font: 300 clamp(17px, 1.7vw, 20px)/1.5 var(--f-display); font-stretch: 108%; color: var(--ink); }
+.stack .look-note .mono { color: var(--ink); opacity: .65; }
 .stack video { display: block; width: 100%; height: auto; background: #000; }
 
 /* ---------- Folders (sections inside a project) ---------- */
@@ -460,7 +463,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
     pdf: 'PDF & catalogue', print: 'Posters & signage', apparel: 'Apparel graphics', identity: 'Packaging & brand',
     collection: 'Collection design', runway: 'Runway & show', editorial: 'Editorial pulls'
   };
-  const DIMS = /*DIMS*/{"images/dkr-cat-01.webp":[1400,1082],"images/dkr-cat-02.webp":[1400,1082],"images/dkr-cat-04.webp":[1400,1082],"images/dkr-cat-06.webp":[1400,1082],"images/dkr-cat-10.webp":[1400,1082],"images/dkr-cat-15.webp":[1400,1082],"images/dkr-cat-21.webp":[1400,1082],"images/dkr-cat-26.webp":[1400,1082],"images/dkr-email-essentials-half.webp":[958,3981],"images/dkr-email-essentials.webp":[958,7963],"images/dkr-email-fleece-half.webp":[958,3849],"images/dkr-email-fleece.webp":[958,7699],"images/dkr-email-market-week-half.webp":[869,4000],"images/dkr-email-market-week.webp":[869,8000],"images/meta-ed-duo-credits.webp":[1179,2097],"images/meta-ed-feather-collar.webp":[1178,851],"images/meta-ed-forest-cape.webp":[1178,1427],"images/meta-ed-glow-forest.webp":[1179,1179],"images/meta-ed-mono.webp":[1143,876],"images/meta-ed-orb-detail.webp":[1178,859],"images/meta-ed-painted-room.webp":[1178,946],"images/meta-ed-projection.webp":[1200,1601],"images/meta-ed-red-car.webp":[1178,839],"images/meta-ed-satin-gown.webp":[1178,1600],"images/meta-ed-sofa.webp":[1151,874],"images/momore-mardi-banner.webp":[1600,1067],"images/momore-mardi-poster.webp":[1600,1067],"images/old-content-calendar.webp":[1100,1355],"images/old-email.webp":[1100,1355],"images/old-fragrance-ads.webp":[1012,1245],"images/old-neandertal.webp":[1012,1245],"images/old-posters.webp":[1012,1245],"images/old-thesis-1.webp":[1012,1245],"images/old-thesis-2.webp":[1012,1245],"images/old-wdlt-posters.webp":[1012,1245],"images/old-web-sandwich.webp":[1012,1245],"images/rw-bts-01.webp":[1200,1800],"images/rw-bts-02.webp":[1200,1800],"images/rw-bts-03.webp":[1200,1800],"images/rw-bts-04.webp":[1200,1800],"images/rw-bts-05.webp":[1013,1800],"images/rw-bts-06.webp":[1175,1753],"images/rw-bts-orb.webp":[1800,1200],"images/rw-bts-wide.webp":[1800,1194],"images/rw-fat-01.webp":[1286,1800],"images/rw-fat-02.webp":[1200,1800],"images/rw-fat-03.webp":[1200,1800],"images/rw-fat-04.webp":[1200,1800],"images/rw-fat-05.webp":[1200,1800],"images/rw-fat-06.webp":[1200,1800],"images/rw-fat-07.webp":[1187,1800],"images/rw-fat-08.webp":[1200,1800],"images/rw-fat-09.webp":[1200,1800],"images/rw-fat-10.webp":[1800,1200],"images/rw-fat-11.webp":[1800,1200],"images/rw-fat-detail-01.webp":[1800,1200],"images/rw-fat-detail-02.webp":[1800,1200],"images/rw-fat-wide.webp":[1800,1013],"images/rw-fit-01.webp":[1201,1800],"images/rw-fit-02.webp":[1169,1800],"images/rw-mx-01.webp":[1200,1800],"images/rw-mx-02.webp":[1200,1800],"images/rw-mx-03.webp":[1200,1800],"images/rw-mx-04.webp":[1200,1800],"images/rw-mx-05.webp":[1200,1800],"images/rw-mx-clip-poster.webp":[540,960],"images/rw-mx-lineup.webp":[1117,1611],"images/uniqlo-ad-cover.webp":[900,1125],"images/uniqlo-ad-landscape.webp":[1600,900],"images/uniqlo-ad-portrait.webp":[1080,1920],"images/uniqlo-email-coded.webp":[1200,4144],"images/uniqlo-email-cover.webp":[900,1125],"images/uniqlo-email-design.webp":[1080,3924],"images/wdlt-boxing-week.webp":[1400,983],"images/wdlt-christmas.webp":[1400,1400],"images/wdlt-cny.webp":[1400,2004],"images/wdlt-heliot-emil.webp":[720,720],"images/wdlt-hours.webp":[1113,1986],"images/wdlt-na-anim.webp":[1200,804],"images/wdlt-na-poster.webp":[1400,1775],"images/wdlt-nea-brand.webp":[1080,1920],"images/wdlt-nea-cover.webp":[1080,1920],"images/wdlt-nea-dark.webp":[1080,1920],"images/wdlt-nea-light.webp":[1080,1920],"images/wdlt-nea-us.webp":[1080,1920],"images/wdlt-o-bullshit.webp":[1080,1920],"images/wdlt-o-candles.webp":[1080,1920],"images/wdlt-o-fonteyn.webp":[1080,1920],"images/wdlt-o-founders.webp":[1080,1920],"images/wdlt-o-madame-x.webp":[1080,1920],"images/wdlt-o-soigne.webp":[1080,1920],"images/wdlt-o-them.webp":[1080,1920],"images/wdlt-ottolinger-anim.webp":[1200,1200],"images/wdlt-ottolinger.webp":[744,752],"images/wdlt-promo-exclusive.webp":[1400,1400],"images/wdlt-promo-poster.webp":[1400,2004],"images/wdlt-published-by.webp":[1024,1063],"images/wdlt-qixi.webp":[1080,1920],"images/wdlt-rombaut.webp":[1024,1024],"images/wdlt-sandwich.webp":[1280,2276],"images/wdlt-wanderlust-story.webp":[1179,2446],"images/wdlt-window-mockup.webp":[1164,1525],"images/fc-brand.webp":[1536,480],"images/fc-cover.webp":[1600,1000],"images/fc-display.webp":[1600,700],"images/fc-email-dark.webp":[750,1600],"images/fc-email-half.webp":[952,1134],"images/fc-email.webp":[952,2268],"images/fc-form-result.webp":[684,1244],"images/fc-form-step3.webp":[684,2346],"images/fc-free.webp":[1000,1250],"images/fc-landing-dark.webp":[1000,2488],"images/fc-landing.webp":[1440,900],"images/fc-main.webp":[1000,1250],"images/fc-mind.webp":[1000,1250],"images/fc-pdf-1.webp":[1100,1424],"images/fc-pdf-3.webp":[1100,1424],"images/fc-pdf-4.webp":[1100,1424],"images/fc-pdf-5.webp":[1100,1424],"images/fc-story.webp":[800,1422],"images/fc-storyboard.webp":[1494,740],"images/fc-t25.webp":[1000,1250],"images/fc-video-poster.webp":[540,960],"images/wdlt-window-installed.webp":[1300,1733],"images/wdlt-window-street.webp":[1300,1799]}/*END*/;
+  const DIMS = /*DIMS*/{"images/dkr-cat-01.webp":[1400,1082],"images/dkr-cat-02.webp":[1400,1082],"images/dkr-cat-04.webp":[1400,1082],"images/dkr-cat-06.webp":[1400,1082],"images/dkr-cat-10.webp":[1400,1082],"images/dkr-cat-15.webp":[1400,1082],"images/dkr-cat-21.webp":[1400,1082],"images/dkr-cat-26.webp":[1400,1082],"images/dkr-email-essentials-half.webp":[958,3981],"images/dkr-email-essentials.webp":[958,7963],"images/dkr-email-fleece-half.webp":[958,3849],"images/dkr-email-fleece.webp":[958,7699],"images/dkr-email-market-week-half.webp":[869,4000],"images/dkr-email-market-week.webp":[869,8000],"images/meta-ed-duo-credits.webp":[1179,2097],"images/meta-ed-feather-collar.webp":[1178,851],"images/meta-ed-forest-cape.webp":[1178,1427],"images/meta-ed-glow-forest.webp":[1179,1179],"images/meta-ed-mono.webp":[1143,876],"images/meta-ed-orb-detail.webp":[1178,859],"images/meta-ed-painted-room.webp":[1178,946],"images/meta-ed-projection.webp":[1200,1601],"images/meta-ed-red-car.webp":[1178,839],"images/meta-ed-satin-gown.webp":[1178,1600],"images/meta-ed-sofa.webp":[1151,874],"images/momore-mardi-banner.webp":[1600,1067],"images/momore-mardi-poster.webp":[1600,1067],"images/old-content-calendar.webp":[1100,1355],"images/old-email.webp":[1100,1355],"images/old-fragrance-ads.webp":[1012,1245],"images/old-neandertal.webp":[1012,1245],"images/old-posters.webp":[1012,1245],"images/old-thesis-1.webp":[1012,1245],"images/old-thesis-2.webp":[1012,1245],"images/old-wdlt-posters.webp":[1012,1245],"images/old-web-sandwich.webp":[1012,1245],"images/rw-bts-01.webp":[1200,1800],"images/rw-bts-02.webp":[1200,1800],"images/rw-bts-03.webp":[1200,1800],"images/rw-bts-04.webp":[1200,1800],"images/rw-bts-05.webp":[1013,1800],"images/rw-bts-06.webp":[1175,1753],"images/rw-bts-orb.webp":[1800,1200],"images/rw-bts-wide.webp":[1800,1194],"images/rw-fat-01.webp":[1286,1800],"images/rw-fat-02.webp":[1200,1800],"images/rw-fat-03.webp":[1200,1800],"images/rw-fat-04.webp":[1200,1800],"images/rw-fat-05.webp":[1200,1800],"images/rw-fat-06.webp":[1200,1800],"images/rw-fat-07.webp":[1187,1800],"images/rw-fat-08.webp":[1200,1800],"images/rw-fat-09.webp":[1200,1800],"images/rw-fat-10.webp":[1800,1200],"images/rw-fat-11.webp":[1800,1200],"images/rw-fat-detail-01.webp":[1800,1200],"images/rw-fat-detail-02.webp":[1800,1200],"images/rw-fat-wide.webp":[1800,1013],"images/rw-fit-01.webp":[1201,1800],"images/rw-fit-02.webp":[1169,1800],"images/rw-mx-01.webp":[1200,1800],"images/rw-mx-02.webp":[1200,1800],"images/rw-mx-03.webp":[1200,1800],"images/rw-mx-04.webp":[1200,1800],"images/rw-mx-05.webp":[1200,1800],"images/rw-mx-clip-poster.webp":[540,960],"images/rw-mx-lineup.webp":[1117,1611],"images/uniqlo-ad-cover.webp":[900,1125],"images/uniqlo-ad-landscape.webp":[1600,900],"images/uniqlo-ad-portrait.webp":[1080,1920],"images/uniqlo-email-coded.webp":[1200,4144],"images/uniqlo-email-cover.webp":[900,1125],"images/uniqlo-email-design.webp":[1080,3924],"images/wdlt-boxing-week.webp":[1400,983],"images/wdlt-christmas.webp":[1400,1400],"images/wdlt-cny.webp":[1400,2004],"images/wdlt-heliot-emil.webp":[720,720],"images/wdlt-hours.webp":[1113,1986],"images/wdlt-na-anim.webp":[1200,804],"images/wdlt-na-poster.webp":[1400,1775],"images/wdlt-nea-brand.webp":[1080,1920],"images/wdlt-nea-cover.webp":[1080,1920],"images/wdlt-nea-dark.webp":[1080,1920],"images/wdlt-nea-light.webp":[1080,1920],"images/wdlt-nea-us.webp":[1080,1920],"images/wdlt-o-bullshit.webp":[1080,1920],"images/wdlt-o-candles.webp":[1080,1920],"images/wdlt-o-fonteyn.webp":[1080,1920],"images/wdlt-o-founders.webp":[1080,1920],"images/wdlt-o-madame-x.webp":[1080,1920],"images/wdlt-o-soigne.webp":[1080,1920],"images/wdlt-o-them.webp":[1080,1920],"images/wdlt-ottolinger-anim.webp":[1200,1200],"images/wdlt-ottolinger.webp":[744,752],"images/wdlt-promo-exclusive.webp":[1400,1400],"images/wdlt-promo-poster.webp":[1400,2004],"images/wdlt-published-by.webp":[1024,1063],"images/wdlt-qixi.webp":[1080,1920],"images/wdlt-rombaut.webp":[1024,1024],"images/wdlt-sandwich.webp":[1280,2276],"images/wdlt-wanderlust-story.webp":[1179,2446],"images/wdlt-window-mockup.webp":[1164,1525],"images/fc-brand.webp":[1536,480],"images/fc-cover.webp":[1600,1000],"images/fc-display.webp":[1600,700],"images/fc-email-dark.webp":[750,1600],"images/fc-email-half.webp":[952,1134],"images/fc-email.webp":[952,2268],"images/fc-form-result.webp":[684,1244],"images/fc-form-step3.webp":[684,2346],"images/fc-free.webp":[1000,1250],"images/fc-landing-dark.webp":[1000,2488],"images/fc-landing.webp":[1440,900],"images/fc-main.webp":[1000,1250],"images/fc-mind.webp":[1000,1250],"images/fc-pdf-1.webp":[1100,1424],"images/fc-pdf-3.webp":[1100,1424],"images/fc-pdf-4.webp":[1100,1424],"images/fc-pdf-5.webp":[1100,1424],"images/fc-story.webp":[800,1422],"images/fc-storyboard.webp":[1494,740],"images/fc-t25.webp":[1000,1250],"images/fc-video-poster.webp":[540,960],"images/wdlt-window-installed.webp":[1300,1733],"images/wdlt-window-street.webp":[1300,1799],"images/meta-l1-front.webp":[1400,1756],"images/meta-l1-orb.webp":[1400,1750],"images/meta-l1-side.webp":[1400,1750],"images/meta-l2-full.webp":[1400,1750],"images/meta-l2-portrait.webp":[1400,1750],"images/meta-l2-side.webp":[1400,1749],"images/meta-l3-cape.webp":[1400,1750],"images/meta-l3-feathers.webp":[1400,1750],"images/meta-l3-front.webp":[1400,1724],"images/meta-l3-profile.webp":[1372,1800],"images/meta-l4-back.webp":[1400,1750],"images/meta-l4-front.webp":[1400,1750],"images/meta-l4-side.webp":[1400,1750],"images/meta-l5-back.webp":[1308,1634],"images/meta-l5-dress.webp":[1400,1751],"images/meta-l5-hands.webp":[1400,1750],"images/meta-l5-portrait.webp":[1200,1800]}/*END*/;
   const I = 'images/';
   const PROJECTS = [
     { id: 'first-cover', title: 'First Cover', client: 'Self-initiated · fictional insurer', year: '2026', wide: true,
@@ -521,7 +524,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
       links: [{ label: 'Open the coded email', href: 'files/uniqlo-seamless-down-email.html' }] },
 
     { id: 'uniqlo-ad', title: 'Light rain? Keep walking.', client: 'UNIQLO Canada · concept', year: '2026',
-      cover: I + 'uniqlo-ad-cover.webp',
+      cover: I + 'uniqlo-ad-landscape.webp',
       summary: 'Paid digital ad for the Utility Cotton Blend Parka, built for story and landscape placements.',
       cats: ['campaign'], role: 'Concept, copy and design',
       deliverables: 'Paid ad, 1080 × 1920 and 1920 × 1080', tools: 'Photoshop, Illustrator',
@@ -639,13 +642,43 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
       gallery: [{ src: I + 'momore-mardi-banner.webp', cap: 'Web banner' }, { src: I + 'momore-mardi-poster.webp', cap: 'In-store poster' }] },
 
     { id: 'metamorphosis', title: 'Metamorphosis', client: 'TMU thesis · Fashion Art Toronto', year: '2024',
-      cover: I + 'old-thesis-1.webp',
-      summary: 'Thesis collection, selected by Fashion Art Toronto for an additional showcase.',
-      cats: ['collection'], role: 'Designer', deliverables: 'Collection, lookbook', tools: 'Illustrator, Photoshop',
-      gallery: [{ src: I + 'old-thesis-1.webp', cap: 'Looks' }, { src: I + 'old-thesis-2.webp', cap: 'Looks' }] },
+      cover: I + 'meta-l1-orb.webp',
+      summary: 'A five-look thesis collection about rebirth and transformation, each look a stage in a creature\'s life. Selected by Fashion Art Toronto for an additional showcase.',
+      cats: ['collection'], role: 'Designer and creative director', deliverables: 'Five-look collection, editorial shoot and campaign images', tools: '3D printing and electroplating, hand-dyeing, pattern making, Photoshop',
+      brief: 'The Metamorphosis collection explores the journey of rebirth and transformation, with each look reflecting a stage in a unique creature\'s life, mirroring human experiences of growth, change and self-discovery.',
+      approach: 'Photography @teerunner · Makeup @zohairkeswani · Hair @mxz_hmua · Design and creative direction @erica_rk',
+      gallery: [
+        { head: 'Look 1 · Incubation', note: 'Silver liquid satin, 3D-printed shell' },
+        { src: I + 'meta-l1-orb.webp', cap: 'The electroplated shell' },
+        { src: I + 'meta-l1-front.webp', cap: 'Front' },
+        { src: I + 'meta-l1-side.webp', cap: 'Side' },
+        { text: '"Incubation" symbolizes a sacred beginning. Silver liquid satin embodies the blank canvas of life, while a 3D-printed, electroplated shell adds a futuristic element. The look shows the fragility and strength of the newborn.', credit: 'Model @brandypaul_' },
+        { head: 'Look 2 · Emergence Evolution', note: '3D-printed structures, hand-dyed fabric' },
+        { src: I + 'meta-l2-full.webp', cap: 'Full look' },
+        { src: I + 'meta-l2-portrait.webp', cap: 'Portrait' },
+        { src: I + 'meta-l2-side.webp', cap: 'Side' },
+        { text: '"Emergence Evolution" embodies the next step in the journey: growth. Combining 3D-printed structures with hand-dyed fabric, this look represents the stage where life begins to unfold and take shape, a time of strength, discovery and newfound potential.', credit: 'Model @muchenn___' },
+        { head: 'Look 3 · Awakening', note: 'PU leather cape, rooster-feather bodysuit' },
+        { src: I + 'meta-l3-front.webp', cap: 'Front, cape open' },
+        { src: I + 'meta-l3-cape.webp', cap: 'The cape, side' },
+        { src: I + 'meta-l3-feathers.webp', cap: 'Feather bodysuit through the cape' },
+        { src: I + 'meta-l3-profile.webp', cap: 'Profile' },
+        { text: '"Awakening" symbolizes the breakthrough from confusion to clarity. A PU leather cape paired with a rooster-feather bodysuit evokes the feeling of breaking free from a shell: the moment of awakening and self-realization in the life journey.', credit: 'Model @stupid.intellectual' },
+        { head: 'Look 4 · Ascension', note: 'Feathered half-skirt' },
+        { src: I + 'meta-l4-back.webp', cap: 'Back' },
+        { src: I + 'meta-l4-side.webp', cap: 'Side' },
+        { src: I + 'meta-l4-front.webp', cap: 'Front' },
+        { text: '"Ascension" represents the peak of transformation and rebirth and is the highlight of the collection. The feathered half-skirt symbolizes a magnificent metamorphosis, reflecting the most radiant moments in life, when one truly shines at their brightest.', credit: 'Model @mmalhvx' },
+        { head: 'Look 5 · Eternity in a Moment', note: 'Bird-skull top, torn tulle with rhinestones' },
+        { src: I + 'meta-l5-dress.webp', cap: 'Front' },
+        { src: I + 'meta-l5-hands.webp', cap: 'The bodice' },
+        { src: I + 'meta-l5-back.webp', cap: 'Back' },
+        { src: I + 'meta-l5-portrait.webp', cap: 'Portrait' },
+        { text: '"Eternity in a Moment" represents the final stage of life. The top draws on the shape of a bird\'s skull, while the skirt, adorned with rhinestones on torn, delicate tulle, glimmers with the beauty of life\'s closing moments. Looking back, each stage of life brings us closer to completeness. Death is not an end but a natural, profound transition, part of life\'s endless cycle, inviting reflection on the beauty of all we have become.', credit: 'Model @rhea.kathleenn' }
+      ] },
 
     { id: 'runway', title: 'Metamorphosis on the runway', client: 'Mass Exodus 2024 · Fashion Art Toronto', year: '2024',
-      cover: I + 'rw-fat-01.webp',
+      cover: I + 'rw-fat-05.webp',
       summary: 'The collection on the runway at TMU\'s Mass Exodus 2024 and at Fashion Art Toronto, where it was selected for an additional showcase.',
       cats: ['runway'], role: 'Designer', deliverables: 'Runway collection', tools: 'Design, pattern making, construction',
       gallery: [
@@ -667,7 +700,6 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
         { src: I + 'rw-fat-04.webp', cap: 'Satin gown, front' },
         { src: I + 'rw-fat-05.webp', cap: 'Feather-hem bodysuit' },
         { src: I + 'rw-fat-06.webp', cap: 'White cape and feather bodysuit' },
-        { src: I + 'rw-fat-07.webp', cap: 'White cape, back view' },
         { src: I + 'rw-fat-08.webp', cap: 'Satin gown with headpiece' },
         { src: I + 'rw-fat-09.webp', cap: 'Teal dress with cut-outs' },
         { src: I + 'rw-fat-detail-01.webp', cap: 'Detail: the mirrored orb' },
@@ -685,7 +717,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
       ] },
 
     { id: 'meta-editorial', title: 'Metamorphosis in editorials', client: 'Pulled for editorial shoots', year: '',
-      cover: I + 'meta-ed-projection.webp',
+      cover: I + 'meta-ed-glow-forest.webp',
       summary: 'Pieces from my thesis collection, pulled by stylists and photographers for their own editorial shoots.',
       cats: ['editorial'], role: 'Designer of the garments', deliverables: 'Garments loaned for editorials', tools: 'Garment design and construction',
       gallery: [
@@ -820,6 +852,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
   const layout = list => {
     const items = list.map(x => {
       if (x.sub) return { ...x, kind: 'sub' };
+      if (x.text) return { ...x, kind: 'text' };
       const [w, h] = DIMS[x.src] || [4, 5];
       return { ...x, w, h, kind: x.mail ? 'mail' : w / h > 1.15 ? 'span' : 'half' };
     });
@@ -834,6 +867,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
   const figHTML = (p, x, n, eager) => {
     const label = attr(p.title + ': ' + x.cap);
     if (x.kind === 'sub') return `<div class="head"><h4>${x.sub}</h4></div>`;
+    if (x.kind === 'text') return `<div class="look-note"><p>${x.text}</p>${x.credit ? `<span class="mono">${x.credit}</span>` : ''}</div>`;
     if (x.kind === 'mail') return `<figure class="mail">
         <div class="mail-prev"><img src="${x.src}" alt="${label}, first half" width="${x.w}" height="${x.h}"${eager ? '' : ' loading="lazy"'} decoding="async"></div>
         <figcaption><span class="mono">${x.cap}</span><a class="btn" href="${x.mail}" target="_blank" rel="noopener">View the full email ↗</a></figcaption>
@@ -850,7 +884,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
     if (!g.length) return `<div class="ph case-hero">${p.state || 'Images coming'}</div>`;
     if (!g.some(x => x.head)) {
       let n = 0;
-      return `<div class="stack">${layout(g).map((x, i) => figHTML(p, x, x.kind === 'sub' ? n : ++n, i < 3)).join('')}</div>`;
+      return `<div class="stack">${layout(g).map((x, i) => figHTML(p, x, (x.kind === 'sub' || x.kind === 'text') ? n : ++n, i < 3)).join('')}</div>`;
     }
     const secs = [];
     g.forEach(x => { if (x.head) secs.push({ head: x.head, note: x.note, items: [] }); else secs[secs.length - 1]?.items.push(x); });
@@ -858,10 +892,10 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
         <span class="mono">${pad2(k + 1)}</span>${sec.head}</button>`).join('');
     const panels = secs.map((sec, k) => {
       let n = 0;
-      const count = sec.items.filter(x => !x.sub).length;
+      const count = sec.items.filter(x => !x.sub && !x.text).length;
       return `<div role="tabpanel" id="fp-${p.id}-${k}" aria-labelledby="ft-${p.id}-${k}" class="fpanel f${k % 4}"${k ? ' hidden' : ''}>
         <div class="fpanel-top mono"><span>${sec.note || sec.head}</span><span>${count} ${count === 1 ? 'piece' : 'pieces'}</span></div>
-        <div class="stack">${layout(sec.items).map((x, i) => figHTML(p, x, x.kind === 'sub' ? n : ++n, k === 0 && i < 3)).join('')}</div>
+        <div class="stack">${layout(sec.items).map((x, i) => figHTML(p, x, (x.kind === 'sub' || x.kind === 'text') ? n : ++n, k === 0 && i < 3)).join('')}</div>
       </div>`;
     }).join('');
     return `<section class="folders" aria-label="${attr(p.title)} sections"><div class="ftabs" role="tablist">${tabs}</div>${panels}</section>`;
@@ -967,7 +1001,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
       </div>
       <div class="case-body">
         <div><h4 class="mono">Brief</h4><p>${p.brief || p.summary}</p></div>
-        ${p.approach ? `<div><h4 class="mono">Approach</h4><p>${p.approach}</p></div>` : ''}
+        ${p.approach ? `<div><h4 class="mono">${p.id === 'metamorphosis' ? 'Credits' : 'Approach'}</h4><p>${p.approach}</p></div>` : ''}
         ${p.a11yText ? `<div><h4 class="mono">${p.a11y ? 'Accessibility' : 'Production'}</h4><p>${p.a11yText}</p></div>` : ''}
       </div></div><button type="button" class="more-btn" aria-expanded="false" aria-controls="caseText" hidden><span>View more</span><i aria-hidden="true">↓</i></button></div>
       ${p.links ? `<div class="case-links">${p.links.map(l => `<a class="btn" href="${l.href}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('')}</div>` : ''}
