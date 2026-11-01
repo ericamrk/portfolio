@@ -17,8 +17,9 @@ Live draft: claude.ai artifact "Rongke Ma Portfolio" (Fo3jD4cxuYpVSbEABNqpH3). T
 ## Decisions
 - WDLT117 = one project "Visual marketing for a concept store", folders: New arrivals / Window & storefront (mock-up, installed window, street view, sandwich board) / Promotions & holidays / Social media · fragrance (Neandertal incl. "Them", + Ô series).
 - Personal project = exhibition posters only. Her perfume packaging is not WDLT117.
+- Covers: Light rain ad = landscape version; Editorial pulls = glow-forest shot.
 - Mo&More = Mardi Mercredi web banner + in-store poster.
-- Metamorphosis: Collection (thesis); Runway with folders Mass Exodus 2024 (line-up, looks, line-up after the show, two before-the-show shots; no video) and Fashion Art Toronto (runway, details, Backstage sub-section); Editorial pulls.
+- Metamorphosis: Collection = five look folders (Look 1 · Incubation silver orb gown / 2 · Emergence Evolution teal / 3 · Awakening white cape + feather bodysuit / 4 · Ascension feather skirt / 5 · Eternity in a Moment black), concept as Brief, credits block, each look's text + model credit (`{text, credit}` item) at the end of its folder; cover = orb close-up (meta-l1-orb); Runway with folders Mass Exodus 2024 (line-up, looks, line-up after the show, two before-the-show shots; no video) and Fashion Art Toronto (runway, details, Backstage sub-section; duplicate cape back view removed; project cover rw-fat-05); Editorial pulls.
 - DKR emails: folders FW26 Essentials / FW26 Fleece / FW26 Market Week (half-length previews) + live mailchi.mp links.
 - Hockey project removed (Oct 30). Retail email's +16% CTR / +12% conversion now in its summary.
 - Contact: email, Instagram @erica_rk, LinkedIn linkedin.com/in/rongke-ma-b74943298. No phone. Résumé button removed until a résumé PDF exists.
