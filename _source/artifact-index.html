@@ -16,7 +16,7 @@
   --oxide: #8f3a21;
   --hatch: #ededea;
   --shadow: 0 1px 2px rgba(20,20,18,.08), 0 8px 24px rgba(20,20,18,.07);
-  --folder-0: #d6dde2; --folder-1: #c9b8a6; --folder-2: #a9bfd0; --folder-3: #dcd6c7;
+  --folder-0: #d6dde2; --folder-1: #c9b8a6; --folder-2: #a9bfd0; --folder-3: #dcd6c7; --folder-4: #c6cfb8; --folder-5: #d9c3c3;
   --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-hand: "Nanum Pen Script", "Bradley Hand", cursive;
   --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -32,14 +32,14 @@
   :root:not([data-theme="light"]) {
     --wall: #161615; --paper: #20201e; --ink: #ecebe6; --muted: #9b9a93; --line: #3a3a36;
     --oxide: #d9825f; --hatch: #262624; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
-    --folder-0: #2c3237; --folder-1: #3a332c; --folder-2: #2b3742; --folder-3: #34322b;
+    --folder-0: #2c3237; --folder-1: #3a332c; --folder-2: #2b3742; --folder-3: #34322b; --folder-4: #2f352a; --folder-5: #3a2e2f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --wall: #161615; --paper: #20201e; --ink: #ecebe6; --muted: #9b9a93; --line: #3a3a36;
   --oxide: #d9825f; --hatch: #262624; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
-  --folder-0: #2c3237; --folder-1: #3a332c; --folder-2: #2b3742; --folder-3: #34322b;
+  --folder-0: #2c3237; --folder-1: #3a332c; --folder-2: #2b3742; --folder-3: #34322b; --folder-4: #2f352a; --folder-5: #3a2e2f;
   color-scheme: dark;
 }
 
@@ -213,7 +213,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 }
 .band-head h2 .num { font: 400 11px/1 var(--f-mono); letter-spacing: .08em; color: var(--muted); vertical-align: top; margin-right: 12px; }
 .contact-sheet { position: relative; }
-.contact-sheet .clip { position: absolute; left: 28px; top: -26px; width: 26px; height: 64px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; transform: rotate(-9deg); }
+.contact-sheet .clip { position: absolute; right: 32px; top: -26px; width: 26px; height: 64px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; transform: rotate(-9deg); }
 .addr .hand { margin-left: 6px; transform: rotate(-3deg); }
 .inbox { aspect-ratio: 4 / 5; max-width: 100%; background: var(--paper); border: 1px solid var(--line); display: grid; align-content: start; overflow: hidden; }
 .card.wide .inbox { aspect-ratio: 16 / 10; }
@@ -241,11 +241,22 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 -2px 6px rgba(20,20,18,.05);
   transform: translateY(6px); transition: transform .25s cubic-bezier(.22,1,.36,1);
 }
-@media (max-width: 640px) { .ftab { padding: 10px 14px 11px 12px; font-size: 12px; } .ftab[aria-selected="true"] { padding-bottom: 15px; } }
 .ftab .mono { font-size: 10px; color: inherit; opacity: .6; }
 .ftab:hover { transform: translateY(2px); }
 .ftab[aria-selected="true"] { transform: none; z-index: 2; padding-bottom: 16px; }
-.f0 { --fc: var(--folder-0); } .f1 { --fc: var(--folder-1); } .f2 { --fc: var(--folder-2); } .f3 { --fc: var(--folder-3); }
+.f0 { --fc: var(--folder-0); } .f1 { --fc: var(--folder-1); } .f2 { --fc: var(--folder-2); } .f3 { --fc: var(--folder-3); } .f4 { --fc: var(--folder-4); } .f5 { --fc: var(--folder-5); }
+/* phones: folders become stacked colour strips, each opening right under its own strip */
+@media (max-width: 640px) {
+  .folders { display: flex; flex-direction: column; gap: 8px; }
+  .ftabs { display: contents; }
+  .ftab, .ftab:first-child { margin: 0; width: 100%; transform: none; justify-content: flex-start; align-items: center; gap: 12px;
+    padding: 15px 16px; border-radius: 10px; font-size: 13px; text-align: left; box-shadow: none; }
+  .ftab:hover { transform: none; }
+  .ftab::after { content: "+"; margin-left: auto; font: 300 20px/1 var(--f-body); opacity: .7; }
+  .ftab[aria-selected="true"] { padding-bottom: 15px; border-radius: 10px 10px 0 0; }
+  .ftab[aria-selected="true"]::after { content: "–"; }
+  .folders .fpanel { border-radius: 0 0 10px 10px; margin-top: -8px; padding: 6px 14px 18px; }
+}
 .fpanel { position: relative; z-index: 1; background: var(--fc); padding: clamp(14px, 2.4vw, 24px); border-radius: 0 12px 12px 12px; }
 .fpanel-top { display: flex; justify-content: space-between; gap: 12px; color: var(--ink); opacity: .7; margin-bottom: 14px; }
 .fpanel .stack { padding-top: 0; }
@@ -888,12 +899,12 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
     }
     const secs = [];
     g.forEach(x => { if (x.head) secs.push({ head: x.head, note: x.note, items: [] }); else secs[secs.length - 1]?.items.push(x); });
-    const tabs = secs.map((sec, k) => `<button type="button" role="tab" id="ft-${p.id}-${k}" aria-controls="fp-${p.id}-${k}" aria-selected="${k === 0}" tabindex="${k === 0 ? 0 : -1}" class="ftab f${k % 4}">
+    const tabs = secs.map((sec, k) => `<button type="button" role="tab" id="ft-${p.id}-${k}" aria-controls="fp-${p.id}-${k}" aria-selected="${k === 0}" tabindex="${k === 0 ? 0 : -1}" class="ftab f${k % 6}" style="order:${2 * k}">
         <span class="mono">${pad2(k + 1)}</span>${sec.head}</button>`).join('');
     const panels = secs.map((sec, k) => {
       let n = 0;
       const count = sec.items.filter(x => !x.sub && !x.text).length;
-      return `<div role="tabpanel" id="fp-${p.id}-${k}" aria-labelledby="ft-${p.id}-${k}" class="fpanel f${k % 4}"${k ? ' hidden' : ''}>
+      return `<div role="tabpanel" id="fp-${p.id}-${k}" aria-labelledby="ft-${p.id}-${k}" class="fpanel f${k % 6}" style="order:${2 * k + 1}"${k ? ' hidden' : ''}>
         <div class="fpanel-top mono"><span>${sec.note || sec.head}</span><span>${count} ${count === 1 ? 'piece' : 'pieces'}</span></div>
         <div class="stack">${layout(sec.items).map((x, i) => figHTML(p, x, (x.kind === 'sub' || x.kind === 'text') ? n : ++n, k === 0 && i < 3)).join('')}</div>
       </div>`;
@@ -908,10 +919,22 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
       root.querySelector('#' + t.getAttribute('aria-controls')).hidden = !on;
     });
     if (focus) tab.focus();
-    const top = root.getBoundingClientRect().top, box = $('#caseIn').getBoundingClientRect().top;
-    if (top < box) root.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
+    const anchor = matchMedia('(max-width: 640px)').matches ? tab : root;
+    const top = anchor.getBoundingClientRect().top, box = $('#caseIn').getBoundingClientRect().top;
+    if (top < box || anchor === tab) anchor.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
   };
-  $('#caseIn').addEventListener('click', e => { const t = e.target.closest('.ftab'); if (t) selectFolder(t); });
+  const isPhone = () => matchMedia('(max-width: 640px)').matches;
+  const collapseFolders = () => {
+    if (!isPhone()) return;
+    $('#caseIn').querySelectorAll('.ftab').forEach(t => { t.setAttribute('aria-selected', 'false'); t.setAttribute('aria-expanded', 'false'); });
+    $('#caseIn').querySelectorAll('.fpanel').forEach(f => f.hidden = true);
+  };
+  $('#caseIn').addEventListener('click', e => {
+    const t = e.target.closest('.ftab'); if (!t) return;
+    if (isPhone() && t.getAttribute('aria-selected') === 'true') { collapseFolders(); return; }
+    selectFolder(t);
+    if (isPhone()) t.setAttribute('aria-expanded', 'true');
+  });
   $('#caseIn').addEventListener('keydown', e => {
     const t = e.target.closest('.ftab'); if (!t || !['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
     const all = [...t.parentNode.children], i = all.indexOf(t);
@@ -1009,6 +1032,7 @@ dialog.case::backdrop { background: rgba(20,20,18,.45); backdrop-filter: blur(3p
     dlg.showModal();
     $('#caseIn').scrollTop = 0;
     setupMore();
+    collapseFolders();
     try { history.replaceState(null, '', '#' + id); } catch {}
   };
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('.case-close')) dlg.close(); });
